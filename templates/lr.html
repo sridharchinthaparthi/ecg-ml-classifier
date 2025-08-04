@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ECG Arrhythmia Classification</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    
+<body>
+
+    <div class="header">
+        <h1>ECG Arrhythmia Classification</h1>
+        <nav>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('svm') }}">SVM</a>
+                <a href="{{ url_for('knn') }}">KNN</a>
+                <a href="{{ url_for('lr') }}">Logistic Regression</a>
+                <a href="{{ url_for('gnb') }}">Gaussian Naive Bayes</a>
+                <a href="{{ url_for('dt') }}">Decision Tree</a>
+                <a href="{{ url_for('rf') }}">Random Forest</a>
+                <a href="{{ url_for('ada') }}">Adaboost</a>
+                <a href="{{ url_for('grad') }}">Gradient Boosting</a>
+                <a href="{{ url_for('xg') }}">XGBoost</a>
+                <a href="{{ url_for('cat') }}">CatBoost</a>
+            </nav>            
+    </div>
+    <div class="container">
+        <h2>Linear Regression - ECG Arrhythmia Classification</h2>
+        <p>Linear Regression is a statistical method used for predictive modeling. In the context of ECG classification, it maps input features to a continuous or categorical output by minimizing the difference between predicted and actual values.</p>
+        
+        <div class="metrics">
+            <h3>Performance Metrics (Train Data)</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>72.0700</td>
+                </tr>
+                <tr>
+                    <td>Precision</td>
+                    <td>72.4346</td>
+                </tr>
+                <tr>
+                    <td>Recall</td>
+                    <td>72.0700</td>
+                </tr>
+                <tr>
+                    <td>F1 Score</td>
+                    <td>72.0596</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="metrics">
+            <h3>Performance Metrics (Test Data)</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>72.0600</td>
+                </tr>
+                <tr>
+                    <td>Precision</td>
+                    <td>72.4315</td>
+                </tr>
+                <tr>
+                    <td>Recall</td>
+                    <td>72.0600</td>
+                </tr>
+                <tr>
+                    <td>F1 Score</td>
+                    <td>71.8742</td>
+                </tr>
+            </table>
+        </div>
+        
+        
+        <h3>Confusion Matrix</h3>
+        <img src="{{ url_for('static', filename='images/lr.png') }}" alt="Confusion Matrix for Linear Regression">
+    </div>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ECG Arrhythmia Classification</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<!-- Include your styles here -->
+    <style>
+        /* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Table Header */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Table Data Cells */
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Hover Effect for Table Rows */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Zebra Stripes for Table Rows */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Table Container */
+table.container {
+    overflow-x: auto;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ECG Arrhythmia Classification</h1>
+        <nav>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('svm') }}">SVM</a>
+                <a href="{{ url_for('knn') }}">KNN</a>
+                <a href="{{ url_for('lr') }}">Logistic Regression</a>
+                <a href="{{ url_for('gnb') }}">Gaussian Naive Bayes</a>
+                <a href="{{ url_for('dt') }}">Decision Tree</a>
+                <a href="{{ url_for('rf') }}">Random Forest</a>
+                <a href="{{ url_for('ada') }}">Adaboost</a>
+                <a href="{{ url_for('grad') }}">Gradient Boosting</a>
+                <a href="{{ url_for('xg') }}">XGBoost</a>
+                <a href="{{ url_for('cat') }}">CatBoost</a>
+            </nav>            
+    </div>
+
+    <div class="container">
+        <section class="intro">
+            <h2>What is ECG Arrhythmia?</h2>
+            <p>
+                Electrocardiography (ECG) is a medical test that measures the electrical activity of the heart over time.
+                An arrhythmia refers to an abnormal rhythm of the heart, which may result in the heart beating too fast, too slow, or irregularly.
+                These irregularities in heart rhythm can indicate various underlying health conditions such as heart disease or electrical conduction disorders.
+            </p>
+        </section>
+
+        <section class="mit-bih">
+            <h2>MIT-BIH Arrhythmia Database</h2>
+            <p>
+                The MIT-BIH Arrhythmia Database is one of the most widely used datasets for arrhythmia classification and ECG research. It contains 48 half-hour excerpts of two-channel ambulatory ECG recordings from 47 subjects, aged between 23 and 89 years. The dataset includes annotations for various types of arrhythmia, providing a valuable resource for researchers working on ECG signal analysis.
+            </p>
+            
+            <h3>Details of the MIT-BIH Arrhythmia Dataset:</h3>
+            <ul>
+                <li><strong>Size:</strong> 48 records (23 subjects) with 1,000,000 data points in total.</li>
+                <li><strong>Sampling Rate:</strong> 360 Hz.</li>
+                <li><strong>Channel:</strong> Two channels of ECG signals (lead I and lead II).</li>
+                <li><strong>Annotations:</strong> 5 types of arrhythmias with corresponding beat classifications:
+                    <ul>
+                        <li>Normal beats (N)</li>
+                        <li>Supraventricular ectopic</li>
+                        <li>Ventricular ectopic</li>
+                        <li>Fusion of ventricular and normal</li>
+                        <li>Unknown beat</li>
+                    </ul>
+                </li>
+                <li><strong>Usage:</strong> Widely used for evaluating algorithms that detect and classify arrhythmias from ECG signals.</li>
+            </ul>
+
+            <h3>Accessing the Dataset:</h3>
+            <p>
+                The MIT-BIH Arrhythmia Database is publicly available through PhysioNet, which is an online repository of physiological datasets. It can be accessed at <a href="https://physionet.org/content/mitdb/1.0.0/" target="_blank">PhysioNet MIT-BIH Arrhythmia Database</a>.
+            </p>
+        </section>
+
+        <section class="arrhythmia-classification">
+            <h2>Arrhythmia Classification</h2>
+            <p>
+                Arrhythmia classification involves the use of various signal processing and machine learning techniques to identify abnormal heart rhythms from ECG data. The process typically includes:
+            </p>
+            <ul>
+                <li>Preprocessing: Cleaning and filtering ECG signals to remove noise and artifacts.</li>
+                <li>Feature Extraction: Identifying relevant features from the ECG signal (e.g., RR intervals, heart rate variability).</li>
+                <li>Model Training: Training machine learning models such as KNN, SVM, or deep learning models to classify arrhythmias.</li>
+                <li>Evaluation: Assessing the model performance using metrics such as accuracy, sensitivity, specificity, and F1-score.</li>
+            </ul>
+        </section>
+
+        <section class="model-performance">
+            <h2>Model Performance Comparison</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Accuracy (Train)</th>
+                        <th>Precision (Train)</th>
+                        <th>Recall (Train)</th>
+                        <th>F1 Score (Train)</th>
+                        <th>Accuracy (Test)</th>
+                        <th>Precision (Test)</th>
+                        <th>Recall (Test)</th>
+                        <th>F1 Score (Test)</th>
+                        <th>Training Time</th>
+                        <th>Testing Time</th>
+                        <th>Memory</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SVM</td>
+                        <td>89.665</td>
+                        <td>90.048</td>
+                        <td>89.665</td>
+                        <td>89.765</td>
+                        <td>87.87</td>
+                        <td>88.339</td>
+                        <td>87.87</td>
+                        <td>87.971</td>
+                        <td>161.108</td>
+                        <td>26.259</td>
+                        <td>1094.335</td>
+                    </tr>
+                    <tr>
+                        <td>KNN</td>
+                        <td>98.901</td>
+                        <td>98.919</td>
+                        <td>98.901</td>
+                        <td>98.894</td>
+                        <td>90.38</td>
+                        <td>90.932</td>
+                        <td>90.38</td>
+                        <td>90.382</td>
+                        <td>0.005</td>
+                        <td>17.702</td>
+                        <td>1099.816</td>
+                    </tr>
+                    <tr>
+                        <td>Logistic Regression</td>
+                        <td>72.070</td>
+                        <td>72.434</td>
+                        <td>72.070</td>
+                        <td>72.059</td>
+                        <td>72.06</td>
+                        <td>72.431</td>
+                        <td>72.06</td>
+                        <td>71.874</td>
+                        <td>5.0248</td>
+                        <td>0.0037</td>
+                        <td>1101.941</td>
+                    </tr>
+                    <tr>
+                        <td>Gaussian Naive Bayes</td>
+                        <td>58.542</td>
+                        <td>58.638</td>
+                        <td>58.542</td>
+                        <td>54.301</td>
+                        <td>58.67</td>
+                        <td>59.704</td>
+                        <td>58.67</td>
+                        <td>54.497</td>
+                        <td>0.0342</td>
+                        <td>0.0061</td>
+                        <td>1128.304</td>
+                    </tr>
+                    <tr>
+                        <td>Decision Tree</td>
+                        <td>100.000</td>
+                        <td>100.000</td>
+                        <td>100.000</td>
+                        <td>100.000</td>
+                        <td>81.95</td>
+                        <td>85.709</td>
+                        <td>81.95</td>
+                        <td>82.153</td>
+                        <td>3.328</td>
+                        <td>0.002</td>
+                        <td>1132.492</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest</td>
+                        <td>100.000</td>
+                        <td>100.000</td>
+                        <td>100.000</td>
+                        <td>100.000</td>
+                        <td>85.38</td>
+                        <td>89.629</td>
+                        <td>85.38</td>
+                        <td>85.671</td>
+                        <td>36.501</td>
+                        <td>0.177</td>
+                        <td>1134.367</td>
+                    </tr>
+                    <tr>
+                        <td>Adaboost</td>
+                        <td>69.855</td>
+                        <td>69.552</td>
+                        <td>69.855</td>
+                        <td>69.603</td>
+                        <td>69.73</td>
+                        <td>69.338</td>
+                        <td>69.73</td>
+                        <td>69.473</td>
+                        <td>14.857</td>
+                        <td>0.084</td>
+                        <td>1134.367</td>
+                    </tr>
+                    <tr>
+                        <td>Gradient Boosting</td>
+                        <td>90.820</td>
+                        <td>90.918</td>
+                        <td>90.820</td>
+                        <td>90.842</td>
+                        <td>86.47</td>
+                        <td>86.824</td>
+                        <td>86.47</td>
+                        <td>86.519</td>
+                        <td>369.656</td>
+                        <td>0.067</td>
+                        <td>1134.742</td>
+                    </tr>
+                    <tr>
+                        <td>XGBoost</td>
+                        <td>99.872</td>
+                        <td>99.872</td>
+                        <td>99.872</td>
+                        <td>99.871</td>
+                        <td>89.50</td>
+                        <td>91.218</td>
+                        <td>89.50</td>
+                        <td>89.637</td>
+                        <td>76.306</td>
+                        <td>0.049</td>
+                        <td>1285.085</td>
+                    </tr>
+                    <tr>
+                        <td>Catboost</td>
+                        <td>99.174</td>
+                        <td>99.175</td>
+                        <td>99.174</td>
+                        <td>99.171</td>
+                        <td>90.86</td>
+                        <td>91.775</td>
+                        <td>90.86</td>
+                        <td>90.959</td>
+                        <td>55.563</td>
+                        <td>0.026</td>
+                        <td>1375.222</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>For more details, visit <a href="https://physionet.org">PhysioNet</a> or explore the dataset using the <a href="https://www.kaggle.com/datasets" target="_blank">Kaggle Datasets</a> platform.</p>
+    </footer>
+</body>
+</html>

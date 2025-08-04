@@ -1,0 +1,95 @@
+<!-- Example: SVM Model Page -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ECG Arrhythmia Classification</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    
+<body>
+
+    <div class="header">
+        <h1>ECG Arrhythmia Classification</h1>
+        <nav>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('svm') }}">SVM</a>
+                <a href="{{ url_for('knn') }}">KNN</a>
+                <a href="{{ url_for('lr') }}">Logistic Regression</a>
+                <a href="{{ url_for('gnb') }}">Gaussian Naive Bayes</a>
+                <a href="{{ url_for('dt') }}">Decision Tree</a>
+                <a href="{{ url_for('rf') }}">Random Forest</a>
+                <a href="{{ url_for('ada') }}">Adaboost</a>
+                <a href="{{ url_for('grad') }}">Gradient Boosting</a>
+                <a href="{{ url_for('xg') }}">XGBoost</a>
+                <a href="{{ url_for('cat') }}">CatBoost</a>
+            </nav>            
+    </div>
+    <div class="container">
+        <h2>Support Vector Machine (SVM)</h2>
+        <p>SVM is a supervised machine learning algorithm used for classification tasks. It finds an optimal hyperplane to separate different classes.</p>
+        <div class="metrics">
+            <h3>Performance Metrics (Train)</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>89.665%</td>
+                </tr>
+                <tr>
+                    <td>Precision</td>
+                    <td>90.048%</td>
+                </tr>
+                <tr>
+                    <td>Recall</td>
+                    <td>89.665%</td>
+                </tr>
+                <tr>
+                    <td>F1 Score</td>
+                    <td>89.765%</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="metrics">
+            <h3>Performance Metrics (Test)</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>87.87%</td>
+                </tr>
+                <tr>
+                    <td>Precision</td>
+                    <td>88.339%</td>
+                </tr>
+                <tr>
+                    <td>Recall</td>
+                    <td>87.87%</td>
+                </tr>
+                <tr>
+                    <td>F1 Score</td>
+                    <td>87.971%</td>
+                </tr>
+            </table>
+        </div>
+        
+        
+        <h3>Confusion Matrix</h3>
+        <img src="{{ url_for('static', filename='images/svm.png') }}" alt="SVM Confusion Matrix">
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 ECG Arrhythmia Classification</p>
+    </div>
+</body>
+</html>

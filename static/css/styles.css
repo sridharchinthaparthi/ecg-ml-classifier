@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/static/images/bg1.jpg'); /* Direct path to static folder */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.header {
+    background-color: rgba(36, 171, 92, 0.8); /* Transparent green */
+    color: white;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.header nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 75%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+footer a {
+    color: #f4f4f4;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.metrics {
+    text-align: left;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.metrics table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.metrics th, .metrics td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.metrics th {
+    background-color: #007bff;
+    color: white;
+}
+
+.confusion-matrix img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}

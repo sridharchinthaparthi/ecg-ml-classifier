@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ECG Arrhythmia Classification</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    
+<body>
+
+    <div class="header">
+        <h1>ECG Arrhythmia Classification</h1>
+        <nav>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('svm') }}">SVM</a>
+                <a href="{{ url_for('knn') }}">KNN</a>
+                <a href="{{ url_for('lr') }}">Logistic Regression</a>
+                <a href="{{ url_for('gnb') }}">Gaussian Naive Bayes</a>
+                <a href="{{ url_for('dt') }}">Decision Tree</a>
+                <a href="{{ url_for('rf') }}">Random Forest</a>
+                <a href="{{ url_for('ada') }}">Adaboost</a>
+                <a href="{{ url_for('grad') }}">Gradient Boosting</a>
+                <a href="{{ url_for('xg') }}">XGBoost</a>
+                <a href="{{ url_for('cat') }}">CatBoost</a>
+            </nav>            
+    </div>
+    <div class="container">
+        <h2>Upload an ECG File</h2>
+        <p>Upload an ECG CSV file to predict the type of arrhythmia.</p>
+
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <br>
+            <button type="submit">Upload & Predict</button>
+        </form>
+
+        {% if error %}
+            <p class="error">Error: {{ error }}</p>
+        {% endif %}
+
+        {% if predictions %}
+            <div class="result">
+                <h3>Predicted Class:</h3>
+                <p>{{ predictions[0] }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 ECG Arrhythmia Classification | Developed by Chandrika and Team</p>
+    </div>
+
+</body>
+</html>

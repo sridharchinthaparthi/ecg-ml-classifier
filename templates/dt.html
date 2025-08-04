@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ECG Arrhythmia Classification</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    
+<body>
+
+    <div class="header">
+        <h1>ECG Arrhythmia Classification</h1>
+        <nav>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('svm') }}">SVM</a>
+                <a href="{{ url_for('knn') }}">KNN</a>
+                <a href="{{ url_for('lr') }}">Logistic Regression</a>
+                <a href="{{ url_for('gnb') }}">Gaussian Naive Bayes</a>
+                <a href="{{ url_for('dt') }}">Decision Tree</a>
+                <a href="{{ url_for('rf') }}">Random Forest</a>
+                <a href="{{ url_for('ada') }}">Adaboost</a>
+                <a href="{{ url_for('grad') }}">Gradient Boosting</a>
+                <a href="{{ url_for('xg') }}">XGBoost</a>
+                <a href="{{ url_for('cat') }}">CatBoost</a>
+            </nav>            
+    </div>
+    <div class="container">
+        <h2>Decision Tree Classifier</h2>
+        <p>The Decision Tree algorithm is a supervised learning technique used for classification tasks. It splits the data based on feature values, forming a tree-like structure to make decisions.</p>
+        
+        <h3>Model Performance Metrics</h3>
+        <div class="metrics">
+            <h4>Training Data</h4>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>100.0000%</td>
+                </tr>
+                <tr>
+                    <td>Precision</td>
+                    <td>100.0000%</td>
+                </tr>
+                <tr>
+                    <td>Recall</td>
+                    <td>100.0000%</td>
+                </tr>
+                <tr>
+                    <td>F1 Score</td>
+                    <td>100.0000%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="metrics">
+            <h4>Test Data</h4>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>81.9500%</td>
+                </tr>
+                <tr>
+                    <td>Precision</td>
+                    <td>85.7100%</td>
+                </tr>
+                <tr>
+                    <td>Recall</td>
+                    <td>81.9500%</td>
+                </tr>
+                <tr>
+                    <td>F1 Score</td>
+                    <td>82.1532%</td>
+                </tr>
+            </table>
+        </div>
+
+        
+        <div class="image-container">
+            <h3>Confusion Matrix</h3>
+            <img src="{{ url_for('static', filename='images/dt.png') }}" alt="Decision Tree Confusion Matrix">
+        </div>
+    </div>
+</body>
+</html>
